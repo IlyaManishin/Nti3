@@ -1,2 +1,6 @@
-# Nti3
-New Game
+# National Technical Olympiad III
+## Team
+- IlyaManishin - Manishin Ilya
+- topsed - Krugov Igor
+- 
+- BillSaifer - nn
