@@ -2,5 +2,5 @@
 ## Team
 - IlyaManishin - Manishin Ilya
 - topsed - Krugov Igor
-- 
-- BillSaifer - nn
+- cgytrus - Maxim
+- BillSaifer - Danila
