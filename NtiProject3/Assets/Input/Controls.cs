@@ -38,12 +38,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Sprint"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""debe7168-14e0-45a6-9327-f26846222c1b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Attack"",
@@ -146,7 +146,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5e5548b4-6413-4ccc-ae6a-a4ce73ee6fad"",
                     ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sprint"",
