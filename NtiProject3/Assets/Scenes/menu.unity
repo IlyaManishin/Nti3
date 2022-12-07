@@ -351,21 +351,9 @@ RectTransform:
   m_Father: {fileID: 1111958692}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 280, y: -45}
-=======
-<<<<<<< HEAD
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -175, y: -45.000015}
-=======
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 280, y: -45}
->>>>>>> d8bbaf1ab076d9f1137bc7b1b720ad77fda9e62a
->>>>>>> Stashed changes
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428315941
@@ -412,18 +400,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-<<<<<<< Updated upstream
       - m_Target: {fileID: 1836308463}
         m_TargetAssemblyTypeName: Scenemanager, Assembly-CSharp
-=======
-<<<<<<< HEAD
-      - m_Target: {fileID: 1111958693}
-        m_TargetAssemblyTypeName: ButtonsManager, Assembly-CSharp
-=======
-      - m_Target: {fileID: 1836308463}
-        m_TargetAssemblyTypeName: Scenemanager, Assembly-CSharp
->>>>>>> d8bbaf1ab076d9f1137bc7b1b720ad77fda9e62a
->>>>>>> Stashed changes
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -626,8 +604,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1836308461
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +648,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> d8bbaf1ab076d9f1137bc7b1b720ad77fda9e62a
 --- !u!1 &2070859463
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,21 +682,9 @@ RectTransform:
   m_Father: {fileID: 1111958692}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 280, y: 45}
-=======
-<<<<<<< HEAD
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -175, y: 65}
-=======
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 280, y: 45}
->>>>>>> d8bbaf1ab076d9f1137bc7b1b720ad77fda9e62a
->>>>>>> Stashed changes
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070859465
@@ -852,21 +815,9 @@ RectTransform:
   m_Father: {fileID: 1111958692}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 280, y: 0}
-=======
-<<<<<<< HEAD
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -175, y: 10.999985}
-=======
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 280, y: 0}
->>>>>>> d8bbaf1ab076d9f1137bc7b1b720ad77fda9e62a
->>>>>>> Stashed changes
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081029443
