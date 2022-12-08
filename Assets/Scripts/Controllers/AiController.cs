@@ -16,6 +16,7 @@ namespace TheGameIdk.Controllers {
         [SerializeField] private GlobalControllerSettings _globalSettings;
         [SerializeField] private int _rayCount = 16;
         [SerializeField] private float _rayDistance = 3f;
+        [SerializeField] private float _rayRadius = 0.9f;
         [SerializeField] private LayerMask _targetLayerMask;
         [SerializeField] private float _targetReachedDistance = 3f;
 
@@ -25,6 +26,8 @@ namespace TheGameIdk.Controllers {
         [Header("Wander AI")]
         [SerializeField] private float _nextRandomPointMinDistance = 0.5f;
         [SerializeField] private float _nextRandomPointMaxDistance = 6f;
+        [SerializeField] private float _wanderRaycastDistanceOffset = 0.2f;
+        [SerializeField] private int _reachedCountUntilNewDirection = 6;
 
         private Rigidbody2D _rigidbody;
 
@@ -36,6 +39,9 @@ namespace TheGameIdk.Controllers {
         private bool _canMoveInAllDirections = true;
         private Vector2 _targetMovement;
         private Vector2 _movement;
+
+        private int _reachedTargetsInWander;
+        private Vector2 _wanderDirection;
 
         private void Awake() {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -59,7 +65,7 @@ namespace TheGameIdk.Controllers {
 
             _canMoveInAllDirections = true;
             for(int i = 0; i < _rayCount; i++) {
-                _hits[i] = Physics2D.CircleCast(position, 0.5f, _rayDirections[i], _rayDistance,
+                _hits[i] = Physics2D.CircleCast(position, _rayRadius, _rayDirections[i], _rayDistance,
                     _globalSettings.wallLayerMask);
                 if(_hits[i])
                     _canMoveInAllDirections = false;
@@ -103,9 +109,15 @@ namespace TheGameIdk.Controllers {
 
             if(!targetReached)
                 return;
-            Vector2 newPointDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-            _targetPosition += newPointDirection *
-                Random.Range(_nextRandomPointMinDistance, _nextRandomPointMaxDistance);
+            _reachedTargetsInWander++;
+            if(_reachedTargetsInWander >= _reachedCountUntilNewDirection) {
+                _wanderDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+                _reachedTargetsInWander = 0;
+            }
+            float distance = Random.Range(_nextRandomPointMinDistance, _nextRandomPointMaxDistance);
+            RaycastHit2D hit = Physics2D.Raycast(_targetPosition, _wanderDirection, distance, _globalSettings.wallLayerMask);
+            _targetPosition += hit ? _wanderDirection * (hit.distance - _wanderRaycastDistanceOffset) :
+                _wanderDirection * distance;
         }
 
         private void ChooseDirection(float angleToTarget) {

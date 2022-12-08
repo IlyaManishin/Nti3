@@ -18,6 +18,7 @@ namespace TheGameIdk.Controllers {
 
         private Vector2 _movement;
         private bool _sprinting;
+        private bool _stoppedSprinting;
 
         private void Awake() {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -27,6 +28,10 @@ namespace TheGameIdk.Controllers {
         private void FixedUpdate() {
             float speed = _sprinting ? _sprintSpeed : _movementSpeed;
             float acceleration = _sprinting ? _sprintAcceleration : _movementAcceleration;
+            if(_stoppedSprinting) {
+                _rigidbody.velocity -= _movement * (_sprintSpeed - _movementSpeed);
+                _stoppedSprinting = false;
+            }
             _rigidbody.AddEntityForce(_movement * (acceleration * Time.deltaTime), speed);
         }
 
@@ -34,6 +39,11 @@ namespace TheGameIdk.Controllers {
         public void OnMove(InputAction.CallbackContext context) => _movement = context.ReadValue<Vector2>();
 
         [UsedImplicitly]
-        public void OnSprint(InputAction.CallbackContext context) => _sprinting = context.ReadValueAsButton();
+        public void OnSprint(InputAction.CallbackContext context) {
+            _sprinting = context.ReadValueAsButton();
+            if(_sprinting)
+                return;
+            _stoppedSprinting = true;
+        }
     }
 }
