@@ -1,7 +1,7 @@
 root=true
 
 [*]
-charset=utf-8
+charset=utf-8-bom
 end_of_line=crlf
 trim_trailing_whitespace=true
 insert_final_newline=true
@@ -13,10 +13,11 @@ tab_width=4
 csharp_new_line_before_members_in_object_initializers=false
 csharp_new_line_before_open_brace=none
 csharp_new_line_between_query_expression_clauses=false
-csharp_preferred_modifier_order=public, protected, internal, private, new, abstract, virtual, override, sealed, static, readonly, extern, unsafe, volatile, async:warning
+csharp_preferred_modifier_order=public, protected, internal, private, new, abstract, virtual, override, sealed, static, readonly, extern, unsafe, volatile, async, file, required:warning
 csharp_space_after_cast=false
 csharp_space_after_keywords_in_control_flow_statements=false
 csharp_style_namespace_declarations=file_scoped:warning
+csharp_style_prefer_utf8_string_literals=true:suggestion
 csharp_style_var_elsewhere=false:warning
 csharp_style_var_for_built_in_types=false:warning
 csharp_style_var_when_type_is_apparent=false:warning
@@ -52,9 +53,11 @@ dotnet_naming_rule.unity_serialized_field_rule.import_to_resharper=True
 dotnet_naming_rule.unity_serialized_field_rule.resharper_description=Unity serialized field
 dotnet_naming_rule.unity_serialized_field_rule.resharper_guid=5f0fdb63-c892-4d2c-9324-15c80b22a7ef
 dotnet_naming_rule.unity_serialized_field_rule.severity=warning
-dotnet_naming_rule.unity_serialized_field_rule.style=lower_camel_case_style
+dotnet_naming_rule.unity_serialized_field_rule.style=lower_camel_case_style_prefix
 dotnet_naming_rule.unity_serialized_field_rule.symbols=unity_serialized_field_symbols
 dotnet_naming_style.lower_camel_case_style.capitalization=camel_case
+dotnet_naming_style.lower_camel_case_style_prefix.capitalization=camel_case
+dotnet_naming_style.lower_camel_case_style_prefix.required_prefix=_
 dotnet_naming_style.upper_camel_case_style.capitalization=pascal_case
 dotnet_naming_symbols.constants_symbols.applicable_accessibilities=public,internal,protected,protected_internal,private_protected
 dotnet_naming_symbols.constants_symbols.applicable_kinds=field
@@ -91,6 +94,7 @@ dotnet_style_qualification_for_property=false:suggestion
 dotnet_style_require_accessibility_modifiers=for_non_interface_members:warning
 
 # ReSharper properties
+resharper_align_linq_query=true
 resharper_align_multiline_binary_expressions_chain=false
 resharper_align_multiline_statement_conditions=false
 resharper_allow_comment_after_lbrace=true
@@ -100,33 +104,50 @@ resharper_blank_lines_after_block_statements=0
 resharper_blank_lines_around_single_line_type=0
 resharper_blank_lines_between_using_groups=1
 resharper_braces_for_ifelse=not_required
+resharper_braces_redundant=false
+resharper_can_use_global_alias=false
 resharper_constructor_or_destructor_body=expression_body
 resharper_cpp_insert_final_newline=false
+resharper_csharp_blank_lines_around_invocable=0
 resharper_csharp_empty_block_style=together
 resharper_csharp_insert_final_newline=true
 resharper_csharp_naming_rule.constants=AaBb
 resharper_csharp_naming_rule.static_readonly=aaBb
 resharper_csharp_new_line_before_while=false
+resharper_csharp_stick_comment=false
 resharper_csharp_wrap_before_ternary_opsigns=false
 resharper_csharp_wrap_multiple_declaration_style=wrap_if_long
 resharper_csharp_wrap_multiple_type_parameter_constraints_style=wrap_if_long
 resharper_csharp_wrap_ternary_expr_style=wrap_if_long
 resharper_default_private_modifier=explicit
 resharper_default_value_when_type_not_evident=default_expression
+resharper_enforce_line_ending_style=true
+resharper_formatter_off_tag=@formatter:off
+resharper_formatter_on_tag=@formatter:on
 resharper_html_insert_final_newline=false
+resharper_indent_nested_fixed_stmt=true
+resharper_indent_nested_foreach_stmt=true
+resharper_indent_nested_for_stmt=true
+resharper_indent_nested_lock_stmt=true
+resharper_indent_nested_usings_stmt=true
+resharper_indent_nested_while_stmt=true
+resharper_indent_preprocessor_directives=normal
 resharper_indent_preprocessor_region=outdent
 resharper_keep_existing_attribute_arrangement=true
 resharper_keep_existing_declaration_parens_arrangement=false
+resharper_keep_existing_embedded_arrangement=false
 resharper_keep_existing_enum_arrangement=true
 resharper_keep_existing_expr_member_arrangement=false
 resharper_keep_existing_invocation_parens_arrangement=false
 resharper_keep_existing_property_patterns_arrangement=false
 resharper_keep_existing_switch_expression_arrangement=false
 resharper_local_function_body=expression_body
+resharper_max_formal_parameters_on_line=6
 resharper_method_or_operator_body=expression_body
 resharper_nested_ternary_style=compact
 resharper_new_line_before_while=true
 resharper_outdent_statement_labels=true
+resharper_parentheses_non_obvious_operations=none, multiplicative, additive, arithmetic, shift, bitwise_and, bitwise_exclusive_or, bitwise_inclusive_or, bitwise, conditional_and, conditional_or, conditional
 resharper_place_accessorholder_attribute_on_same_line=if_owner_is_single_line
 resharper_place_accessor_attribute_on_same_line=if_owner_is_single_line
 resharper_place_attribute_on_same_line=false
@@ -135,6 +156,8 @@ resharper_place_expr_method_on_single_line=true
 resharper_place_expr_property_on_single_line=true
 resharper_place_field_attribute_on_same_line=if_owner_is_single_line
 resharper_place_linq_into_on_new_line=false
+resharper_place_record_field_attribute_on_same_line=false
+resharper_place_simple_case_statement_on_same_line=true
 resharper_place_simple_embedded_block_on_same_line=true
 resharper_place_simple_embedded_statement_on_same_line=false
 resharper_place_simple_enum_on_single_line=true
@@ -144,7 +167,10 @@ resharper_resx_insert_final_newline=false
 resharper_shaderlab_insert_final_newline=false
 resharper_show_autodetect_configure_formatting_tip=false
 resharper_space_after_cast=false
+resharper_space_around_arrow_op=true
+resharper_space_between_attribute_sections=false
 resharper_space_within_single_line_array_initializer_braces=true
+resharper_t4_insert_final_newline=true
 resharper_use_continuous_indent_inside_parens=false
 resharper_use_indent_from_vs=false
 resharper_vb_insert_final_newline=false
@@ -194,6 +220,8 @@ resharper_convert_if_statement_to_switch_statement_highlighting=suggestion
 resharper_convert_if_to_or_expression_highlighting=warning
 resharper_convert_to_constant_global_highlighting=warning
 resharper_convert_to_constant_local_highlighting=warning
+resharper_cpp_clang_tidy_clang_diagnostic_microsoft_cast_highlighting=none
+resharper_cpp_parameter_may_be_const_highlighting=none
 resharper_empty_constructor_highlighting=suggestion
 resharper_field_can_be_made_read_only_global_highlighting=warning
 resharper_field_can_be_made_read_only_local_highlighting=warning
@@ -201,6 +229,7 @@ resharper_heap_view_boxing_allocation_highlighting=hint
 resharper_heap_view_object_allocation_evident_highlighting=hint
 resharper_heap_view_object_allocation_highlighting=hint
 resharper_invert_if_highlighting=suggestion
+resharper_invoke_as_extension_method_highlighting=warning
 resharper_local_function_can_be_made_static_highlighting=warning
 resharper_local_variable_hides_member_highlighting=none
 resharper_member_can_be_internal_highlighting=none
@@ -242,13 +271,30 @@ resharper_web_config_module_not_resolved_highlighting=warning
 resharper_web_config_type_not_resolved_highlighting=warning
 resharper_web_config_wrong_module_highlighting=warning
 
-[{*.csproj,*.vcxproj}]
+[{*.csproj,*.vcxproj,*.yaml,*.yml,*.unity,*.asset,*.meta,*.har,*.inputactions,*.json,*.asmdef,*.asmref}]
 indent_size=2
 
 [*.txt]
 trim_trailing_whitespace=false
 insert_final_newline=false
 
-[{*.unity,*.asset,*.meta}]
-trim_trailing_whitespace=false
-insert_final_newline=true
+[{*.har,*.inputactions,*.json}]
+indent_style=space
+indent_size=2
+
+[{*.yaml,*.yml}]
+indent_style=space
+indent_size=2
+
+[*.asmdef]
+indent_style=space
+indent_size=2
+
+[*.asmref]
+indent_style=space
+indent_size=2
+
+[*.{appxmanifest,asax,ascx,aspx,axaml,build,c,c++,cc,cginc,compute,cp,cpp,cs,cshtml,cu,cuh,cxx,dtd,fx,fxh,h,hh,hlsl,hlsli,hlslinc,hpp,hxx,inc,inl,ino,ipp,ixx,master,mpp,mq4,mq5,mqh,nuspec,paml,razor,resw,resx,shader,skin,tpp,usf,ush,vb,xaml,xamlx,xoml,xsd}]
+indent_style=space
+indent_size=4
+tab_width=4
